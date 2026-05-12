@@ -31,6 +31,13 @@ function draw() {
   // 3. 設定畫布背景顏色為 e7c6ff
   background('#e7c6ff');
 
+  // 繪製上方置中文字
+  fill(0); // 設定文字顏色為黑色
+  textSize(24); // 設定文字大小
+  textAlign(CENTER, TOP); // 文字水平置中，基準點在上方
+  text("414730357林OO", width / 2, 20); // 第一行文字
+  text("作品為影像辨識_耳環臉譜", width / 2, 55); // 第二行文字
+
   // 4. 計算顯示的寬高（畫布寬高的 50%）
   let displayW = width * 0.5;
   let displayH = height * 0.5;
