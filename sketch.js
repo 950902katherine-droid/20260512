@@ -48,8 +48,8 @@ function draw() {
   // 影像辨識與繪製耳環
   if (modelReady && faces.length > 0) { // 只有當模型準備就緒且偵測到臉部時才進行繪製
     let face = faces[0];
-    // MediaPipe 索引：176 與 400 更接近左右耳垂的底端
-    let earPoints = [face.keypoints[176], face.keypoints[400]];
+    // 修正索引點：150 與 379 是 FaceMesh 中左右耳垂最底端的精確位置
+    let earPoints = [face.keypoints[150], face.keypoints[379]];
 
     fill(255, 255, 0); // 黃色
     noStroke();
@@ -61,8 +61,8 @@ function draw() {
 
       // 繪製三個垂直排列的圓圈
       for (let i = 0; i < 3; i++) {
-        let offsetY = i * 12; // 每個圓圈間距 12 像素
-        circle(mappedX, mappedY + offsetY, 8); // 圓圈直徑為 8
+        let offsetY = 5 + (i * 12); // 從耳垂下方 5 像素處開始，每隔 12 像素畫一個圓
+        circle(mappedX, mappedY + offsetY, 7); // 圓圈直徑設定為 7
       }
     }
   }
